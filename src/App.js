@@ -10,6 +10,7 @@ export default function App() {
 
   useEffect(() => {
     fetchPostsForSubreddit("cats").then((posts) => {
+      console.log("fetchPosts");
       setRows(posts);
       setIsLoading(false);
     });

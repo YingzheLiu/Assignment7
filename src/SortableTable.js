@@ -40,9 +40,9 @@ export default function SortableTable({ columns, rows, defaultSort }) {
         <tr>
           {columns.map(({ field, header }) => {
             return (
-              <th key={field} onClick={() => sortRows(field)}>
+              <th key={field} onClick={() => sortRows(field)} data-testid="th">
                 {header}&nbsp;
-                <small>
+                <small data-testid="sortDirection">
                   {currentSortedField === field && `(${currentSortDirection})`}
                 </small>
               </th>
@@ -53,7 +53,7 @@ export default function SortableTable({ columns, rows, defaultSort }) {
       <tbody>
         {sortedRows.map((row) => {
           return (
-            <tr key={row.id}>
+            <tr key={row.id} data-testid="tr">
               {columns.map(({ field }) => {
                 return <td key={field}>{row[field]}</td>;
               })}
